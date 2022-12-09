@@ -1,4 +1,5 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <div className="container">
@@ -6,8 +7,8 @@ const Navbar = () => (
       <div className="navbar__content">
         <h1 className="navbar__title">Bookstore CMS</h1>
         <ul className="navbar__links">
-          <li><a href="/">Books</a></li>
-          <li><a href="/">Categories</a></li>
+          <li><Link to="/">Books</Link></li>
+          <li><Link to="/categories">Categories</Link></li>
         </ul>
       </div>
       <AccountCircleIcon className="navbar__user" sx={{ fontSize: 40, color: '#0290ff' }} />

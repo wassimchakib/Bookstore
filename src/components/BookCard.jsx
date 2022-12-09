@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ChapterInfo from './ChapterInfo';
 import ProgressBar from './ProgressBar';
 
@@ -10,9 +11,9 @@ const BookCard = ({ book }) => (
       <p className="book__author">{book.author}</p>
 
       <ul className="book__edit">
-        <li><a href="/">Comments</a></li>
-        <li><a href="/">Remove</a></li>
-        <li><a href="/">Edit</a></li>
+        <li><Link href="/">Comments</Link></li>
+        <li><Link href="/">Remove</Link></li>
+        <li><Link href="/">Edit</Link></li>
       </ul>
     </div>
     <div className="book__progress">

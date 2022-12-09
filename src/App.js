@@ -1,6 +1,7 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import AddBook from './components/AddBook';
-import BookCards from './components/BookCards';
+import Books from './components/Books';
+import Categories from './components/Categories';
 import Header from './components/Header';
 
 const books = [
@@ -32,9 +33,13 @@ const books = [
 function App() {
   return (
     <>
-      <Header />
-      <BookCards books={books} />
-      <AddBook />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Books books={books} />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Router>
     </>
   );
 }

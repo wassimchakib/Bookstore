@@ -313,7 +313,9 @@ header {
   font-weight: 300;
 }
 
-.chapter__button, .form__btn {
+.chapter__button,
+.form__btn,
+.categories__btn {
   cursor: pointer;
   border: none;
   background-color: var(--bg-secondary);
@@ -341,7 +343,8 @@ header {
   gap: var(--fs-2);
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom:  var(--fs-6);
+  padding-bottom: var(--fs-6);
+  flex-direction: column;
 }
 
 .form__book .container {
@@ -394,15 +397,15 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-/* ==============================*\
+  /* ==============================*\
           Reset
 \*============================== */
 
-body {
-  padding: 0;
-}
+  body {
+    padding: 0;
+  }
 
-/* ==============================*\
+  /* ==============================*\
           Header
 \*============================== */
 
@@ -422,7 +425,8 @@ body {
     font-size: var(--fs-2);
     flex-wrap: wrap;
   }
-/* ==============================*\
+
+  /* ==============================*\
           Book Card
 \*============================== */
 
@@ -444,7 +448,7 @@ body {
     width: 100%;
   }
 
-/* ==============================*\
+  /* ==============================*\
           Progress Bar
 \*============================== */
   .progress__percent {
