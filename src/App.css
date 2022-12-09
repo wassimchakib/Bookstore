@@ -128,15 +128,17 @@ header {
   padding: var(--fs-4);
   border: 1px solid var(--bg-border);
   border-radius: 4px;
+  background-color: var(--bg-white);
 }
 
 .book__card .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .book__info {
-  font-size: 1.2rem;
+  font-size: var(--fs-2);
 }
 
 .book__categories {
@@ -169,8 +171,13 @@ header {
   border-left: 2px solid var(--bg-border);
 }
 
+.book__edit a:hover {
+  color: #5ab5fb;
+}
+
 .book__progress {
   display: flex;
+  align-items: center;
 }
 
 .progress__circular {
@@ -178,7 +185,6 @@ header {
   flex-direction: column;
   padding-right: var(--fs-6);
   border-right: 2px solid var(--bg-border);
-  height: fit-content;
 }
 
 /* ==============================*\
@@ -205,27 +211,26 @@ header {
   stroke-linecap: round;
 }
 
+.progress__percent svg circle:hover {
+  cursor: pointer;
+}
+
 .progress__percent svg circle:nth-child(1) {
   stroke-dashoffset: 0;
   stroke: var(--bg-border);
 }
 
 .progress__percent svg circle:nth-child(2) {
-  stroke-dashoffset: calc(440 - (440 * 87) / 100);
+  /* stroke-dashoffset: calc(440 - (440 * 87) / 100); */
   stroke: var(--bg-progress);
   opacity: 0.1;
-  animation: animate-circle 2s forwards; 
+  animation: animate-circle 2s forwards;
+  transition: stroke 0.3s ease-in;
 }
 
-@keyframes animate-circle {
-  0% {
-      opacity: 0;
-      stroke-dashoffset: 440;
-  }
-
-  100% {
-      opacity: 1;
-  }
+.progress__percent:hover svg circle:nth-child(2) {
+  stroke: green;
+  transition: stroke 0.3s ease-in;
 }
 
 .progress__number {
@@ -234,10 +239,27 @@ header {
   animation: showNumber 1s 1s forwards;
 }
 
+.progress__percent:hover .progress__number {
+  color: green;
+  transition: color 0.3s ease-in;
+}
+
+@keyframes animate-circle {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 440;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes showNumber {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -255,4 +277,40 @@ header {
 .progress__status {
   opacity: 0.5;
   font-weight: 300;
+}
+
+/* ==============================*\
+          Chapter Info
+\*============================== */
+.progress__chapter {
+  font-size: var(--fs-2);
+  padding-left: var(--fs-6);
+  border-left: 2px solid var(--bg-border);
+}
+
+.progress__chapter span {
+  font-weight: 300;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.progress__chapter p {
+  font-weight: 300;
+}
+
+.chapter__button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  padding: var(--fs-1) var(--fs-2);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  color: var(--bg-white);
+  margin-top: var(--fs-2);
+}
+
+.chapter__button:hover {
+  background-color: #5ab5fb;
 }

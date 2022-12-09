@@ -1,9 +1,10 @@
+import ChapterInfo from './ChapterInfo';
 import ProgressBar from './ProgressBar';
 
 const BookCard = () => (
   <div className="book__card">
     <div className="container">
-      <div className="book_info">
+      <div className="book__info">
         <span className="book__categories">Action</span>
         <h3 className="book__title">The Hunger Games</h3>
         <p className="book__author">Suzanne Collins</p>
@@ -15,12 +16,8 @@ const BookCard = () => (
         </ul>
       </div>
       <div className="book__progress">
-        <ProgressBar />
-        <div className="progress__chapter">
-          <span>Current Chapter</span>
-          <p>Chapter 17</p>
-          <button type="button">Update Progress</button>
-        </div>
+        <ProgressBar percentage={75} />
+        <ChapterInfo />
       </div>
     </div>
   </div>
