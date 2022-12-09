@@ -5,6 +5,7 @@
 \*============================== */
 
 :root {
+  /* Font Sizes */
   --fs-1: 1rem;
   --fs-2: 1.6rem;
   --fs-3: 2rem;
@@ -12,6 +13,18 @@
   --fs-5: 3rem;
   --fs-6: 4rem;
   --fs-7: 6rem;
+
+  /* Colors */
+  --bg-primary: #f5f6fa;
+  --bg-secondary: #0290ff;
+  --bg-white: #fff;
+  --bg-border: #e8e8e8;
+  --bg-progress: #307bbe;
+  --bg-nav: #121212;
+  --color-book: #4386bf;
+
+  /* Shadows */
+  --shadow-1: 0 0 60px 0 rgb(0 0 0 / 5%);
 }
 
 *,
@@ -27,8 +40,13 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background-color: var(--bg-primary);
+  padding: var(--fs-6);
+}
+
 .container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -39,4 +57,202 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+#root {
+  box-shadow: var(--shadow-1);
+  background-color: #fafafa;
+}
+
+/* ==============================*\
+          Header
+\*============================== */
+header {
+  background-color: var(--bg-white);
+  padding: var(--fs-4) 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  gap: var(--fs-5);
+}
+
+.navbar__title {
+  color: var(--bg-secondary);
+  font-size: var(--fs-5);
+}
+
+.navbar__links {
+  display: flex;
+  gap: var(--fs-5);
+  font-size: var(--fs-2);
+  color: var(--bg-nav);
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
+.navbar__links li {
+  position: relative;
+}
+
+.navbar__links li a::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: var(--bg-nav);
+  opacity: 0.5;
+  bottom: 0;
+  left: 0;
+  transition: width 0.5s ease-in;
+}
+
+.navbar__links li a:hover::after {
+  width: 100%;
+}
+
+.navbar__user {
+  cursor: pointer;
+}
+
+/* ==============================*\
+          Book Card
+\*============================== */
+.book__card {
+  padding: var(--fs-4);
+  border: 1px solid var(--bg-border);
+  border-radius: 4px;
+}
+
+.book__card .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book__info {
+  font-size: 1.2rem;
+}
+
+.book__categories {
+  font-weight: 700;
+  color: var(--bg-nav);
+  opacity: 0.5;
+}
+
+.book__title {
+  font-size: var(--fs-2);
+}
+
+.book__author {
+  color: var(--color-book);
+  font-weight: 300;
+}
+
+.book__edit {
+  margin-top: var(--fs-3);
+  display: flex;
+}
+
+.book__edit li {
+  padding-right: var(--fs-2);
+  color: var(--color-book);
+}
+
+.book__edit li:not(:first-child) {
+  padding-left: var(--fs-2);
+  border-left: 2px solid var(--bg-border);
+}
+
+.book__progress {
+  display: flex;
+}
+
+.progress__circular {
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--fs-6);
+  border-right: 2px solid var(--bg-border);
+  height: fit-content;
+}
+
+/* ==============================*\
+          Progress Bar
+\*============================== */
+
+.progress__percent {
+  display: flex;
+  align-items: center;
+}
+
+.progress__percent svg {
+  position: relative;
+  transform: scale(0.6);
+  margin-right: -125px;
+}
+
+.progress__percent svg circle {
+  fill: none;
+  stroke-width: 10;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke-linecap: round;
+}
+
+.progress__percent svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: var(--bg-border);
+}
+
+.progress__percent svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 87) / 100);
+  stroke: var(--bg-progress);
+  opacity: 0.1;
+  animation: animate-circle 2s forwards; 
+}
+
+@keyframes animate-circle {
+  0% {
+      opacity: 0;
+      stroke-dashoffset: 440;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+.progress__number {
+  padding-right: var(--fs-6);
+  opacity: 0;
+  animation: showNumber 1s 1s forwards;
+}
+
+@keyframes showNumber {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.progress__percentage {
+  font-size: var(--fs-5);
+  font-weight: 300;
+}
+
+.progress__percentage span {
+  font-size: var(--fs-2);
+}
+
+.progress__status {
+  opacity: 0.5;
+  font-weight: 300;
 }
