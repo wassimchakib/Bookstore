@@ -2,9 +2,9 @@ import { PropTypes } from 'prop-types';
 
 const ProgressBar = ({ percentage }) => (
   <div className="progress__percent">
-    <svg>
-      <circle cx="70" cy="70" r="70" />
-      <circle style={{ strokeDashoffset: 440 - (440 * percentage) / 100 }} cx="70" cy="70" r="70" />
+    <svg width={90} height={90}>
+      <circle cx="40" cy="40" r="40" />
+      <circle style={{ strokeDashoffset: (250 - (250 * percentage) / 100) }} cx="40" cy="40" r="40" />
     </svg>
     <div className="progress__number">
       <h2 className="progress__percentage">

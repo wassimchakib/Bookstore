@@ -48,6 +48,7 @@ body {
 .container {
   width: 90%;
   margin: 0 auto;
+  max-width: 1200px;
 }
 
 ul {
@@ -75,12 +76,15 @@ header {
 .navbar {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .navbar__content {
   display: flex;
   align-items: center;
   gap: var(--fs-5);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .navbar__title {
@@ -124,17 +128,24 @@ header {
 /* ==============================*\
           Book Card
 \*============================== */
+
+.book__cards {
+  padding: var(--fs-6);
+}
+
 .book__card {
   padding: var(--fs-4);
   border: 1px solid var(--bg-border);
   border-radius: 4px;
   background-color: var(--bg-white);
-}
-
-.book__card .container {
+  margin-bottom: var(--fs-4);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.book__card:last-child {
+  margin-bottom: 0;
 }
 
 .book__info {
@@ -159,6 +170,7 @@ header {
 .book__edit {
   margin-top: var(--fs-3);
   display: flex;
+  flex-wrap: wrap;
 }
 
 .book__edit li {
@@ -178,6 +190,7 @@ header {
 .book__progress {
   display: flex;
   align-items: center;
+  width: 50%;
 }
 
 .progress__circular {
@@ -194,21 +207,21 @@ header {
 .progress__percent {
   display: flex;
   align-items: center;
+  width: 50%;
+  gap: var(--fs-3);
 }
 
 .progress__percent svg {
   position: relative;
-  transform: scale(0.6);
-  margin-right: -125px;
 }
 
 .progress__percent svg circle {
   fill: none;
   stroke-width: 10;
   transform: translate(5px, 5px);
-  stroke-dasharray: 440;
-  stroke-dashoffset: 440;
   stroke-linecap: round;
+  stroke: #000;
+  stroke-dasharray: 250;
 }
 
 .progress__percent svg circle:hover {
@@ -221,16 +234,14 @@ header {
 }
 
 .progress__percent svg circle:nth-child(2) {
-  /* stroke-dashoffset: calc(440 - (440 * 87) / 100); */
   stroke: var(--bg-progress);
-  opacity: 0.1;
+  opacity: 0.7;
   animation: animate-circle 2s forwards;
   transition: stroke 0.3s ease-in;
 }
 
 .progress__percent:hover svg circle:nth-child(2) {
   stroke: green;
-  transition: stroke 0.3s ease-in;
 }
 
 .progress__number {
@@ -247,7 +258,7 @@ header {
 @keyframes animate-circle {
   0% {
     opacity: 0;
-    stroke-dashoffset: 440;
+    stroke-dashoffset: 1000;
   }
 
   100% {
@@ -286,6 +297,9 @@ header {
   font-size: var(--fs-2);
   padding-left: var(--fs-6);
   border-left: 2px solid var(--bg-border);
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .progress__chapter span {
@@ -299,7 +313,7 @@ header {
   font-weight: 300;
 }
 
-.chapter__button {
+.chapter__button, .form__btn {
   cursor: pointer;
   border: none;
   background-color: var(--bg-secondary);
@@ -313,4 +327,134 @@ header {
 
 .chapter__button:hover {
   background-color: #5ab5fb;
+}
+
+/* ==============================*\
+          Add Book Form
+\*============================== */
+.form__book {
+  width: 100%;
+}
+
+.form__wrapper {
+  display: flex;
+  gap: var(--fs-2);
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom:  var(--fs-6);
+}
+
+.form__book .container {
+  border-top: 2px solid var(--bg-border);
+  padding-top: var(--fs-4);
+}
+
+.form__book h2 {
+  text-transform: uppercase;
+  color: #888;
+  font-size: var(--fs-4);
+  padding-bottom: var(--fs-2);
+}
+
+.form__book .input {
+  padding: var(--fs-2);
+  border-radius: 4px;
+  border: 1px solid var(--bg-border);
+  background-color: var(--bg-white);
+  font-size: var(--fs-2);
+  color: var(--bg-nav);
+  width: 50%;
+}
+
+.form__book .select {
+  width: 30%;
+}
+
+.form__book button {
+  margin-top: 0;
+}
+
+/* ==============================*\
+          Responsive Design
+\*============================== */
+
+@media screen and (max-width: 1400px) {
+  /* ==============================*\
+          Progress Bar
+\*============================== */
+  .progress__percent {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .progress__number {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+/* ==============================*\
+          Reset
+\*============================== */
+
+body {
+  padding: 0;
+}
+
+/* ==============================*\
+          Header
+\*============================== */
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar__user {
+    margin-top: var(--fs-2);
+  }
+
+  .navbar__title {
+    font-size: var(--fs-2);
+  }
+
+  .navbar__links {
+    font-size: var(--fs-2);
+    flex-wrap: wrap;
+  }
+/* ==============================*\
+          Book Card
+\*============================== */
+
+  .book__cards {
+    padding: var(--fs-2);
+  }
+
+  .book__card {
+    flex-direction: column;
+    gap: var(--fs-2);
+  }
+
+  .book__progress {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .book__info {
+    width: 100%;
+  }
+
+/* ==============================*\
+          Progress Bar
+\*============================== */
+  .progress__percent {
+    margin-top: var(--fs-2);
+  }
+
+  .progress__chapter {
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+    margin-top: var(--fs-3);
+  }
 }
