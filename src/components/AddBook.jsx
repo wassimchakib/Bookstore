@@ -4,7 +4,9 @@ import { v4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
-  const initialState = { name: '', author: '' };
+  const initialState = {
+    name: '', author: '', completionStatus: 0, currentChapter: 'Chapter 1',
+  };
   const [book, setBook] = useState(initialState);
   const dispatch = useDispatch();
   const id = v4();
