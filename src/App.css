@@ -60,6 +60,12 @@ a {
   color: inherit;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 #root {
   box-shadow: var(--shadow-1);
   background-color: #fafafa;
@@ -200,6 +206,16 @@ header {
   border-right: 2px solid var(--bg-border);
 }
 
+.manipulate__btn {
+  color: var(--color-book);
+  font-size: var(--fs-2);
+  font-family: 'Poppins', sans-serif;
+}
+
+.manipulate__btn:hover {
+  color: #5ab5fb;
+}
+
 /* ==============================*\
           Progress Bar
 \*============================== */
@@ -316,8 +332,6 @@ header {
 .chapter__button,
 .form__btn,
 .categories__btn {
-  cursor: pointer;
-  border: none;
   background-color: var(--bg-secondary);
   border-radius: 8px;
   padding: var(--fs-1) var(--fs-2);
@@ -375,6 +389,15 @@ header {
 
 .form__book button {
   margin-top: 0;
+}
+
+/* ==============================*\
+          Categories Page
+\*============================== */
+.categories__status {
+  font-size: var(--fs-4);
+  text-align: left;
+  width: 100%;
 }
 
 /* ==============================*\
