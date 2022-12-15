@@ -1,22 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBook, addBookAsync } from '../redux/books/books';
 
 const AddBook = () => {
   const initialState = {
-    name: '', author: '', completionStatus: 0, currentChapter: 'Chapter 1',
+    title: '', author: '', category: 'Drama', completionStatus: 0, currentChapter: 'Chapter 1',
   };
   const [book, setBook] = useState(initialState);
   const dispatch = useDispatch();
-  const id = v4();
 
   const handleChange = (e) => {
     switch (e.target.name) {
       case 'name':
         setBook({
           ...book,
-          name: e.target.value,
+          title: e.target.value,
         });
         break;
       case 'author':
@@ -31,7 +30,7 @@ const AddBook = () => {
 
   const submitBook = (e) => {
     e.preventDefault();
-    dispatch(addBook({ ...book, id }));
+    dispatch(addBookAsync({ ...book, item_id: v4() }));
     setBook(initialState);
   };
 
