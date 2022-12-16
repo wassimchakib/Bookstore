@@ -41,7 +41,6 @@ const AddBook = () => {
         <form className="form__wrapper">
           <input name="title" className="input" type="text" value={book.title} placeholder="Book title" onChange={handleChange} />
           <input name="author" className="input" type="text" value={book.author} placeholder="Author" onChange={handleChange} />
-
           {/* <select className="input select">
             <option value="Action">Action</option>
             <option value="Science Fiction">Science Fiction</option>

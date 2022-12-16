@@ -363,7 +363,6 @@ header {
   align-items: center;
   flex-wrap: wrap;
   padding-bottom: var(--fs-6);
-  flex-direction: column;
 }
 
 .form__book .container {
@@ -385,15 +384,16 @@ header {
   background-color: var(--bg-white);
   font-size: var(--fs-2);
   color: var(--bg-nav);
-  width: 50%;
+  width: 25%;
 }
 
 .form__book .select {
-  width: 30%;
+  width: 20%;
 }
 
 .form__book button {
   margin-top: 0;
+  width: 20%;
 }
 
 /* ==============================*\
