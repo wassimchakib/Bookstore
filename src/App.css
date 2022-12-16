@@ -158,6 +158,11 @@ header {
   font-size: var(--fs-2);
 }
 
+.book__nocontent {
+  font-size: var(--fs-4);
+  color:var(--bg-progress);
+}
+
 .book__categories {
   font-weight: 700;
   color: var(--bg-nav);
