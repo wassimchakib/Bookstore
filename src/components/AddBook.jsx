@@ -1,22 +1,21 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBookAsync } from '../redux/books/books';
 
 const AddBook = () => {
   const initialState = {
-    name: '', author: '', completionStatus: 0, currentChapter: 'Chapter 1',
+    title: '', author: '', category: 'Drama', completionStatus: 0, currentChapter: 'Chapter 1',
   };
   const [book, setBook] = useState(initialState);
   const dispatch = useDispatch();
-  const id = v4();
 
   const handleChange = (e) => {
     switch (e.target.name) {
-      case 'name':
+      case 'title':
         setBook({
           ...book,
-          name: e.target.value,
+          title: e.target.value,
         });
         break;
       case 'author':
@@ -31,7 +30,7 @@ const AddBook = () => {
 
   const submitBook = (e) => {
     e.preventDefault();
-    dispatch(addBook({ ...book, id }));
+    dispatch(addBookAsync({ ...book, item_id: v4() }));
     setBook(initialState);
   };
 
@@ -40,7 +39,7 @@ const AddBook = () => {
       <div className="container">
         <h2>Add New Book</h2>
         <form className="form__wrapper">
-          <input name="name" className="input" type="text" value={book.name} placeholder="Book title" onChange={handleChange} />
+          <input name="title" className="input" type="text" value={book.title} placeholder="Book title" onChange={handleChange} />
           <input name="author" className="input" type="text" value={book.author} placeholder="Author" onChange={handleChange} />
 
           {/* <select className="input select">
