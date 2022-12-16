@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBookAsync } from '../redux/books/books';
+import { removeBook } from '../redux/books/books';
 
 const ManipulateBook = ({ id, title }) => {
   const newTitle = title;
@@ -9,7 +9,7 @@ const ManipulateBook = ({ id, title }) => {
   const handleClick = (e) => {
     switch (e.target.name) {
       case 'Remove':
-        dispatch(removeBookAsync(id));
+        dispatch(removeBook(id));
         break;
       default:
     }
