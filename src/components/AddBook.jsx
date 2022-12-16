@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { addBook, addBookAsync } from '../redux/books/books';
+import { addBookAsync } from '../redux/books/books';
 
 const AddBook = () => {
   const initialState = {
@@ -12,7 +12,7 @@ const AddBook = () => {
 
   const handleChange = (e) => {
     switch (e.target.name) {
-      case 'name':
+      case 'title':
         setBook({
           ...book,
           title: e.target.value,
@@ -39,7 +39,7 @@ const AddBook = () => {
       <div className="container">
         <h2>Add New Book</h2>
         <form className="form__wrapper">
-          <input name="name" className="input" type="text" value={book.name} placeholder="Book title" onChange={handleChange} />
+          <input name="title" className="input" type="text" value={book.title} placeholder="Book title" onChange={handleChange} />
           <input name="author" className="input" type="text" value={book.author} placeholder="Author" onChange={handleChange} />
 
           {/* <select className="input select">

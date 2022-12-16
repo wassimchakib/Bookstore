@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook, removeBookAsync } from '../redux/books/books';
+import { removeBookAsync } from '../redux/books/books';
 
 const ManipulateBook = ({ id, title }) => {
   const newTitle = title;

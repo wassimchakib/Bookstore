@@ -13,9 +13,9 @@ const BookCards = () => {
   return (
     <div className="book__cards">
       <div className="container">
-        { books.map((book, index) => (
-          <BookCard key={book[index].id} book={book[index]} />
-        ))}
+        { books.length > 0 ? books.map((book) => (
+          <BookCard key={book.item_id} book={{ ...book, completionStatus: 0, currentChapter: 'Chapter 1' }} />
+        )) : <h2>No content found</h2>}
       </div>
     </div>
   );

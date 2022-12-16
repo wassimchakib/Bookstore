@@ -31,24 +31,24 @@ const GET_BOOK = 'GET_BOOK';
 //   },
 // ];
 
-export const addBook = (book) => ({
-  type: ADD_BOOK,
-  payload: book,
-});
+// export const addBook = (book) => ({
+//   type: ADD_BOOK,
+//   payload: book,
+// });
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+// export const removeBook = (id) => ({
+//   type: REMOVE_BOOK,
+//   id,
+// });
 
 export const bookReducer = (state = [], action) => {
   switch (action.type) {
     case `${GET_BOOK}/fulfilled`:
-      return [...state, action.payload];
-    case ADD_BOOK:
+      return [...state, ...action.payload];
+    case `${ADD_BOOK}/fulfilled`:
       return [...state, action.payload];
     case `${REMOVE_BOOK}/fulfilled`:
-      return state.filter((book) => book.item_id !== action.id);
+      return state.filter((book) => book.item_id !== action.payload);
     default:
       return state;
   }
@@ -86,13 +86,13 @@ const deleteBook = async (id) => {
 
 export const addBookAsync = createAsyncThunk(
   ADD_BOOK,
-  async (book) => createBook(book),
+  async (book) => createBook(book).then(() => book),
 );
 
 export const getBooksAsync = createAsyncThunk(
   GET_BOOK,
   async () => getAllBooks().then((books) => Object.entries(books)
-    .map(([id, book]) => ({ id, ...book[0] }))),
+    .map(([id, book]) => ({ item_id: id, ...book[0] }))),
 );
 
 export const removeBookAsync = createAsyncThunk(
