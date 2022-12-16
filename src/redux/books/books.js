@@ -1,45 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
-const GET_BOOK = 'GET_BOOK';
-
-// const books = [
-//   {
-//     id: '1',
-//     name: 'The Hunger Games',
-//     categorie: 'Action',
-//     author: 'Suzanne Collins',
-//     completionStatus: 75,
-//     currentChapter: 'Chapter 17',
-//   },
-//   {
-//     id: '2',
-//     name: 'Dune',
-//     categorie: 'Science Fiction',
-//     author: 'Frank Herbert',
-//     completionStatus: 50,
-//     currentChapter: 'Chapter 3: "A Lesson Learned"',
-//   },
-//   {
-//     id: '3',
-//     name: 'Capital in the Twenty-First Century',
-//     categorie: 'Economy',
-//     author: 'Suzanne Collins',
-//     completionStatus: 0,
-//     currentChapter: 'Introduction',
-//   },
-// ];
-
-// export const addBook = (book) => ({
-//   type: ADD_BOOK,
-//   payload: book,
-// });
-
-// export const removeBook = (id) => ({
-//   type: REMOVE_BOOK,
-//   id,
-// });
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const GET_BOOK = 'bookstore/books/GET_BOOK';
 
 export const bookReducer = (state = [], action) => {
   switch (action.type) {
